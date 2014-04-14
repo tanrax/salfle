@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<title>Salfle</title>
+			<link rel="stylesheet" href="css/style.css">
+			<script src="js/jquery-2.0.3.min.js" type="text/javascript"></script>
+			<script src="lang/en.js" type="text/javascript"></script>
+			<script src="lang/es.js" type="text/javascript"></script>
+	</head>
+	<body onunload="ocultarCarga()"> 
+		<h1>Salfle</h1>
+		<h2><span id="text0">por Andros Fenollosa</span></h2>
+		<div id="botonEmpezar"><div id="carga"></div><span id="text1"></span></div> 
+		<div id="botonInstrucciones"><span id="text2"></span></div>
+		<div id="botonIdioma"><div id="bandera"></div><span id="text3"></span></div> 	
+		<script type="text/javascript">
+			
+			
+
+			/** Carga los textos **/
+			var sIdioma = 'en';
+			if(localStorage['idioma']) {
+				sIdioma = localStorage['idioma'];
+			}
+			$('#bandera').css('background-image', 'url("img/Flag-' + sIdioma + '.png")');
+			$("#text0").html(eval('sText0' + sIdioma));
+			$("#text1").html(eval('sText1' + sIdioma));
+			$("#text2").html(eval('sText2' + sIdioma));
+			$("#text3").html(eval('sText3' + sIdioma));
+
+			/**
+			 * Metodo que carga la pagina del juego
+			 */
+			$("#botonEmpezar").click(function() {
+				playAudio('sound/boton.mp3');
+				$('#carga').css('visibility', 'visible');
+		        location.href = 'juego.html';
+			});
+
+			/* Hipervinculos */
+			$("#botonInstrucciones").click(function() {
+				playAudio('sound/boton.mp3');
+				location.href = 'tutorial.html';
+			});
+
+			$("#botonIdioma").click(function() {
+				playAudio('sound/boton.mp3');
+				location.href = 'idioma.html';
+			});
+
+			/**
+			 * Metodo que oculta la carga
+			 */
+			function ocultarCarga() {
+				$('#carga').css('visibility', 'hidden');
+			}
+
+			/**
+			 * Muestra los botones
+			 */
+			$('h1').hide(0).delay(1000).fadeIn('slow');
+			$('h2').hide(0).delay(1500).fadeIn('slow');
+			$('#botonEmpezar').hide(0).delay(2000).show('slow');
+			$('#botonInstrucciones').hide(0).delay(2200).show('slow');
+			$('#botonIdioma').hide(0).delay(2400).show('slow');
+
+			/** Reproduce música **/
+			function playAudio(src) {
+
+			    // HTML5 Audio
+			    if (typeof Audio != "undefined") { 
+			        new Audio(src).play() ;
+
+			    // Phonegap media
+			    } else if (typeof device != "undefined") {
+
+			        // Android needs the search path explicitly specified
+			        if (device.platform == 'Android') {
+			            src = '/android_asset/www/' + src;
+			        }
+
+			        var mediaRes = new Media(src,
+			            function onSuccess() {
+			                // release the media resource once finished playing
+			                mediaRes.release();
+			            },
+			            function onError(e){
+			                console.log("error playing sound: " + JSON.stringify(e));
+			            });
+			        mediaRes.play();
+
+			    } else {
+			        console.log("no sound API to play: " + src);
+			    }
+			}
+			
+			playAudio('sound/index.mp3')
+	</script>
+	</body>
+</html>

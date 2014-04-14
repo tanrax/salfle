@@ -1,0 +1,246 @@
+/********* GENERAL ***********/
+@font-face {
+    font-family: 'disposabledroid';
+    src: url('../font/disposabledroid/disposabledroid-bb.regular-webfont.eot');
+    src: url('../font/disposabledroid/disposabledroid-bb.regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/disposabledroid/disposabledroid-bb.regular-webfont.woff') format('woff'),
+         url('../font/disposabledroid/disposabledroid-bb.regular-webfont.ttf') format('truetype'),
+         url('../font/disposabledroid/disposabledroid-bb.regular-webfont.svg#disposabledroid_bbregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+  	-webkit-tap-highlight-color: transparent;
+}
+body {
+	background-image: url("../img/fondo.png");
+	font-size: 14px;
+	text-align: center;
+	color: #FAFDFF;
+	font-family: 'disposabledroid';
+}
+a {
+	color: #FAFDFF;
+	text-decoration: none;
+}
+/********* MENU INTRODUCCION ***********/
+h1 {
+	font-size: 5em;
+	margin-top: 1em;
+	color: #2983CC;
+}
+h2 {
+	font-size: 2em;
+	margin-top: 0.2em;
+	color: #FAFF67;
+}
+/** Colores
+Amarillo: FAFF67
+Rojo: FF534D;
+Azul: 2983CC;
+Granate: B22924;
+Marino: 2D77B2;
+Fuente: FAFDFF;
+**/
+#botonEmpezar {
+	position: relative;
+	margin: 0 auto;
+	width: 8em;
+	height: 1.4em;
+	background-color: #FF534D;
+	margin-top: 2em;
+	font-size: 3em;
+	padding-top: 0.7em;
+}
+#botonEmpezar:hover {
+	cursor: pointer;
+	box-shadow: 1em 1em rgba(0, 0, 0, 0.5);
+	top: -10px;
+	transition: all 0.5s ease-in-out;
+}
+#botonInstrucciones {
+	position: relative;
+	margin: 0 auto;
+	width: 8em;
+	height: 1.4em;
+	background-color: #2983CC;
+	margin-top: 1em;
+	font-size: 2em;
+	padding-top: 0.7em;
+}
+#botonInstrucciones:hover {
+	cursor: pointer;
+	box-shadow: 1em 1em rgba(0, 0, 0, 0.5);
+	top: -10px;
+	transition: all 0.5s ease-in-out;
+}
+#botonIdioma {
+	position: relative;
+	margin: 0 auto;
+	width: 8em;
+	height: 1.4em;
+	background-color: #27CC40;
+	margin-top: 1em;
+	font-size: 2em;
+	padding-top: 0.7em;
+}
+#botonIdioma:hover {
+	cursor: pointer;
+	box-shadow: 1em 1em rgba(0, 0, 0, 0.5);
+	top: -10px;
+	transition: all 0.5s ease-in-out;
+}
+#bandera {
+	position: absolute;
+	top: 0.7em;
+	left: 0.8em;
+	width: 30px;
+	height: 20px;
+	background-repeat: no-repeat;
+}
+#carga {
+	position: absolute;
+	top: 0.7em;
+	left: 0.5em;
+	width: 32px;
+	height: 32px;
+	background-image: url("../img/carga.gif");
+	background-repeat: no-repeat;
+	visibility: hidden;
+}
+
+/********* TUTORIAL **********/
+#botonVolver {
+	position: relative;
+	margin: 0 auto;
+	width: 7em;
+	height: 1.4em;
+	background-color: #27CC40;
+	margin-top: 1em;
+	margin-bottom: 2em;
+	font-size: 3em;
+	padding-top: 0.7em;
+
+	transition: all 0.5s ease-in-out;
+}
+#botonVolver:hover {
+	cursor: pointer;
+	box-shadow: 1em 1em rgba(0, 0, 0, 0.5);
+	top: -10px;
+
+	transition: all 0.5s ease-in-out;
+}
+#imgTutorial {
+	position: relative;
+	margin: 0 auto;
+}
+#textoTutorial {
+	font-size: 2.5em;
+	padding: 1em;
+}
+/********* IDIOMA **********/
+#botonCambiarIdiomaIngles {
+	position: relative;
+	margin: 0 auto;
+	width: 8em;
+	height: 1.4em;
+	background-color: #27CC40;
+	margin-top: 3em;
+	font-size: 3em;
+	padding-top: 0.7em;
+
+	transition: all 0.5s ease-in-out;
+}
+#botonCambiarIdiomaIngles:hover {
+	cursor: pointer;
+	box-shadow: 1em 1em rgba(0, 0, 0, 0.5);
+	top: -10px;
+
+	transition: all 0.5s ease-in-out;
+}
+#botonCambiarIdiomaCastellano {
+	position: relative;
+	margin: 0 auto;
+	width: 8em;
+	height: 1.4em;
+	background-color: #2983CC;
+	margin-top: 2em;
+	font-size: 3em;
+	padding-top: 0.7em;
+
+	transition: all 0.5s ease-in-out;
+}
+#botonCambiarIdiomaCastellano:hover {
+	cursor: pointer;
+	box-shadow: 1em 1em rgba(0, 0, 0, 0.5);
+	top: -10px;
+
+	transition: all 0.5s ease-in-out;
+}
+
+/********* JUEGO ***********/
+.cuadroG {
+	float: left;
+	background-color: #F5F5F5;
+	margin: 2px;
+
+	transition: all 0.5s ease-in-out;
+}
+#contenedorCuadros {
+	position: relative;
+	margin: 0 auto;
+	margin-top: 1em;
+}
+#nivel {
+	float: left;
+	margin-left: 0.5em;
+}
+#combo {
+	position: relative;
+	margin: 0 auto;
+	margin-top: 0.5em;
+	font-size: 5em;
+	color: #FF534D;
+
+	transition: all 0.5s ease-in-out;
+}
+#multiplicador {
+	float: right;
+	color: white;
+	margin-right: 0.5em;
+	transition: all 0.5s ease-in-out;
+}
+#puntuacion {
+	position: relative;
+	margin: 0 auto;
+	margin-top: 1.3em;
+	font-size: 6em;
+	color: #FAFF67;
+
+	transition: all 0.5s ease-in-out;
+}
+#botonReiniciar {
+	position: absolute;
+	top: 5em;
+	left: 50%;
+	margin: 0 auto;
+	width: 8em;
+	height: 1.4em;
+	background-color: #2D77B2;
+	font-size: 3em;
+	padding-top: 0.7em;
+	margin-left: -4em;
+	visibility: hidden;
+
+	transition: all 0.5s ease-in-out;
+}
+#botonReiniciar:hover {
+	cursor: pointer;
+	top: 4.5em;
+	box-shadow: 1em 1em rgba(0, 0, 0, 0.5);
+
+	transition: all 0.5s ease-in-out;
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<title>Salfle</title>
+			<link rel="stylesheet" href="css/style.css">
+			<script src="js/jquery-2.0.3.min.js" type="text/javascript"></script>
+			<script src="js/Modelo.js" type="text/javascript" charset="utf-8"></script>
+			<script src="js/Juego.js" type="text/javascript" charset="utf-8"></script>
+			<script src="js/fastclick.js" type="application/javascript"></script> 
+			<script src="lang/en.js" type="text/javascript"></script>
+			<script src="lang/es.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="contenedorCuadros">
+			<div id="cuadro1" class="cuadroG"></div>
+			<div id="cuadro2" class="cuadroG"></div>
+			<div id="cuadro3" class="cuadroG"></div>
+			<div id="cuadro4" class="cuadroG"></div>
+			<div id="cuadro5" class="cuadroG"></div>
+			<div id="cuadro6" class="cuadroG"></div>
+			<div id="cuadro7" class="cuadroG"></div>
+			<div id="cuadro8" class="cuadroG"></div>
+			<div id="cuadro9" class="cuadroG"></div>
+			<div id="cuadro10" class="cuadroG"></div>
+			<div id="cuadro11" class="cuadroG"></div>
+			<div id="cuadro12" class="cuadroG"></div>
+			<div id="cuadro13" class="cuadroG"></div>
+			<div id="cuadro14" class="cuadroG"></div>
+			<div id="cuadro15" class="cuadroG"></div>
+			<div id="cuadro16" class="cuadroG"></div>
+			<div id="cuadro17" class="cuadroG"></div>
+			<div id="cuadro18" class="cuadroG"></div>
+			<div id="cuadro19" class="cuadroG"></div>
+			<div id="cuadro20" class="cuadroG"></div>
+			<div id="cuadro21" class="cuadroG"></div>
+			<div id="cuadro22" class="cuadroG"></div>
+			<div id="cuadro23" class="cuadroG"></div>
+			<div id="cuadro24" class="cuadroG"></div>
+			<div id="cuadro25" class="cuadroG"></div>
+			<div id="cuadro26" class="cuadroG"></div>
+			<div id="cuadro27" class="cuadroG"></div>
+			<div id="cuadro28" class="cuadroG"></div>
+			<div id="cuadro29" class="cuadroG"></div>
+			<div id="cuadro30" class="cuadroG"></div>
+			<div id="cuadro31" class="cuadroG"></div>
+			<div id="cuadro32" class="cuadroG"></div>
+			<div id="cuadro33" class="cuadroG"></div>
+			<div id="cuadro34" class="cuadroG"></div>
+			<div id="cuadro35" class="cuadroG"></div>
+			<div id="cuadro36" class="cuadroG"></div>
+			<div id="cuadro37" class="cuadroG"></div>
+			<div id="cuadro38" class="cuadroG"></div>
+			<div id="cuadro39" class="cuadroG"></div>
+			<div id="cuadro40" class="cuadroG"></div>
+			<div id="cuadro41" class="cuadroG"></div>
+			<div id="cuadro42" class="cuadroG"></div>
+			<div id="cuadro43" class="cuadroG"></div>
+			<div id="cuadro44" class="cuadroG"></div>
+			<div id="cuadro45" class="cuadroG"></div>
+			<div id="cuadro46" class="cuadroG"></div>
+			<div id="cuadro47" class="cuadroG"></div>
+			<div id="cuadro48" class="cuadroG"></div>
+			<div id="cuadro49" class="cuadroG"></div>
+		</div>
+		<div id="combo">
+			<div id="nivel"><span id="text4">Nivel</span> <span id="numNivel">1</span></div>
+			<div id="multiplicador">1x</div>
+		</div>
+		<div id="puntuacion">0</div>
+		<div id="botonReiniciar"><span id="text5">Reiniciar</span></div>
+	<script type="text/javascript">
+		/* Quita delay de smartphones al hacer click */
+		window.addEventListener('load', function () {
+			FastClick.attach(document.body);
+		}, false);
+
+		/* Carga los textos */
+		var sIdioma = 'en';
+		if(localStorage['idioma']) {
+			sIdioma = localStorage['idioma'];
+		}
+		$("#text4").html(eval('sText4' + sIdioma));
+		$("#text5").html(eval('sText5' + sIdioma));
+
+    	/* Estilos iniciales */
+    	var iAlchura = Math.floor($(document).width() / 7);
+    	if($(document).width() > 1000) iAlchura = 80;
+		$('.cuadroG').css('width', iAlchura - 6);
+		$('.cuadroG').css('height', iAlchura - 6); 
+		$('#contenedorCuadros').css('width', iAlchura * 7 - 14);
+		$('#contenedorCuadros').css('height', iAlchura * 7 - 14);
+
+		/* Controlador */
+		var miModelo = new Modelo();
+		miModelo.miJuego.empezar();
+		miModelo.actualizarTablero();
+		$('[id^=cuadro]').click(function() {
+			var myId = $(this).attr("id");
+			var sPatr = /cuadro/;
+			if(sPatr.test(myId)) {
+				if(!miModelo.miJuego.bTerm) miModelo.seleccionar(myId);
+				miModelo.procesarEvento(myId);
+			}
+		});
+
+		/* Boton reiniciar */
+		$("#botonReiniciar").click(function() {
+			miModelo.reiniciarJuego();
+		});
+	</script>
+	</body>
+</html>

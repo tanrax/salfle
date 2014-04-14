@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<title>Salfle</title>
+			<link rel="stylesheet" href="css/style.css">
+			<script src="js/jquery-2.0.3.min.js" type="text/javascript"></script>
+			<script src="lang/en.js" type="text/javascript"></script>
+			<script src="lang/es.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<img src="img/tutorial.png" id="imgTutorial" alt="Tutorial">
+		<p id="textoTutorial"></p>
+		<div id="botonVolver"><span id="text7">Volver</span></div> 	
+		<script type="text/javascript">
+			/* Estilos iniciales */
+			var iMedida = parseInt($(window).width() - ($(window).width() / 5));
+			if(iMedida > 450) iMedida = 450;
+			$('#imgTutorial').css('width', iMedida + 'px');
+			$('#imgTutorial').css('height', iMedida + 'px'); 
+
+			/* Textos */
+			var sIdioma = 'en';
+			if(localStorage['idioma']) {
+				sIdioma = localStorage['idioma'];
+			}
+			$("#textoTutorial").html(eval('sText6' + sIdioma));
+			$("#text7").html(eval('sText7' + sIdioma));
+
+			/** Metodos que cambia la cookie de idioma */
+			$("#botonVolver").click(function() {
+				location.href = 'index.html';
+			});
+	</script>
+	</body>
+</html>
